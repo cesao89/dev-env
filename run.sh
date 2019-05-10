@@ -9,4 +9,4 @@ docker run --name dev-docker --privileged -p22 --user $user \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /home/$user/.kube:/home/$user/.kube \
     -v /home/$user/.minikube:/home/$user/.minikube \
-    -it dev:1.0.0
+    -it dev-env:latest  
