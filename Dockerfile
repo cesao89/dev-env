@@ -8,7 +8,7 @@ ARG UID=1001
 ARG GID=1001
 # Set Environment Variables & Language Environment
 ENV LC_ALL en_US.UTF-8
-ENV user ${user:-jair}
+ENV user ${user:-admin}
 ENV HOME /home/$user
 
 # Update Base System
