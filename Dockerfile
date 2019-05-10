@@ -68,10 +68,13 @@ RUN echo "$user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user \
     && chmod 0440 /etc/sudoers.d/user
 
 WORKDIR /home/$user
+
 # Add configuration files
 ADD ./config/.tmux.conf ./.tmux.conf
 ADD ./config/.zshrc ./.zshrc
+ADD ./config/.bash_aliases ./.bash_aliases
 ADD ./bin/man.sh /opt/man.sh
+
 # Change current user
 RUN chown -R ${user}:${user} /home/$user
 USER $user
