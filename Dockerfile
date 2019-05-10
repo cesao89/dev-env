@@ -67,6 +67,12 @@ RUN useradd -d /home/$user -u $UID -g $GID -m -s /bin/zsh $user \
 RUN echo "$user ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/user \
     && chmod 0440 /etc/sudoers.d/user
 
+# Install Docker Compose
+RUN curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" \
+    -o /usr/local/bin/docker-compose && \
+    chmod +x /usr/local/bin/docker-compose &&
+    docker-compose --version
+
 WORKDIR /home/$user
 
 # Add configuration files
