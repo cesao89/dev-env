@@ -88,5 +88,5 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 export JAVA_HOME=/opt/java/jdk
 export PATH=$PATH:$JAVA_HOME/bin
 
-source ./.bash_aliases
+source ~/.bash_aliases
 
