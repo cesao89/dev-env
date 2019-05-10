@@ -26,7 +26,7 @@ RUN add-apt-repository -y ppa:jonathonf/vim \
 
 # Install Basic Packages
 RUN apt-get install -y wget curl git man unzip \
-    tmux zsh php vim-gtk3 lynx htop openssh-server mosh sudo php-pear
+    tmux zsh php vim-gtk3 lynx htop openssl openssh-server mosh sudo php-pear
 
 # Install packages needed to compile binaries
 RUN apt-get install -y build-essential autotools-dev automake pkg-config
@@ -53,8 +53,8 @@ RUN cd /opt \
 
 # Install composer.phar
 RUN cd /opt \
-    && wget https://raw.githubusercontent.com/composer/getcomposer.org/1b137f8bf6db3e79a38a5bc45324414a6b1f9df2/web/installer -O - -q | php -- --quiet \
-    && ln -sf /opt/composer.phar /usr/local/bin/composer
+    && curl -sS https://getcomposer.org/installer | php \
+    && chmod +x composer.phar && mv composer.phar /usr/local/bin/composer
 
 # Install pear
 RUN pear channel-update doc.php.net && pear install doc.php.net/pman
